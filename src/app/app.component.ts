@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Coin } from './interfaces/coin';
+import { CoinService } from './services/coin.service';
 
 @Component({
   selector: 'app-root',
@@ -16,15 +17,17 @@ export class AppComponent implements OnInit {
   searchText: string = '';
   filteredCoints: Coin[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private coinService: CoinService) {}
 
   ngOnInit() {
-    this.http.get<Coin[]>(this.api).subscribe(
+    this.coinService.getCoins().subscribe(
       (res) => {
         this.coins = res;
         this.filteredCoints = this.coins;
       },
-      (err) => console.error(err)
+      (err) => {
+        console.log(err);
+      }
     );
   }
 
