@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-interface Coin {
-  id: string;
-  image: string;
-  name: string;
-  symbol: string;
-  current_price: number;
-  price_change_percentage_24h: number;
-  total_volume: number;
-}
+import { Coin } from './interfaces/coin';
 
 @Component({
   selector: 'app-root',
