@@ -1,1 +1,1 @@
-# [ES] Angular Coingecko API 🤑
+# [🇪🇸] Angular Coingecko API 🤑
